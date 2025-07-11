@@ -1,5 +1,5 @@
 stm32746g_discovery_axim-flash/stm32f7xx_it.o: ..\Src\stm32f7xx_it.c \
-  ..\Inc\stm32f7xx_it.h ..\Inc\stm32f7_loop_intr.h \
+  ..\Inc\stm32f7xx_it.h ..\Inc\stm32f7_loop_DMA.h \
   ..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h \
   ..\Inc\stm32f7xx_hal_conf.h \
   ..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rcc.h \
@@ -101,7 +101,4 @@ stm32746g_discovery_axim-flash/stm32f7xx_it.o: ..\Src\stm32f7xx_it.c \
   ..\..\..\..\Drivers\BSP\STM32746G-Discovery\..\Components\rk043fn48h\rk043fn48h.h \
   ..\..\..\..\Drivers\BSP\STM32746G-Discovery\stm32746g_discovery_sdram.h \
   ..\..\..\..\Drivers\BSP\STM32746G-Discovery\..\..\..\Utilities\Fonts\fonts.h \
-  ..\Inc\stm32f7_wm8994_init.h \
-  C:\Users\jaecho01\AppData\Local\arm\packs\ARM\CMSIS-DSP\1.16.2\Include\arm_const_structs.h \
-  C:\Users\jaecho01\AppData\Local\arm\packs\ARM\CMSIS-DSP\1.16.2\Include\arm_common_tables.h \
   ..\..\..\..\Drivers\BSP\Components\wm8994\wm8994.h

@@ -832,14 +832,14 @@
               <FilePath>../Src/stm32f7xx_hal_msp.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7_delay_intr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_delay_intr.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f7_display.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f7_display.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\stm32f7_delay.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1688,14 +1688,14 @@
               </FileOption>
             </File>
             <File>
-              <FileName>stm32f7_delay_intr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_delay_intr.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f7_display.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f7_display.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\stm32f7_delay.c</FilePath>
             </File>
           </Files>
         </Group>

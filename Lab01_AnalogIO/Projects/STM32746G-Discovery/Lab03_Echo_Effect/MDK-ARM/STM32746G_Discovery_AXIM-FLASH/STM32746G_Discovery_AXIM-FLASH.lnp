@@ -65,7 +65,7 @@
 "stm32746g_discovery_axim-flash\stm32f7xx_hal_lptim.o"
 "stm32746g_discovery_axim-flash\stm32f7xx_it.o"
 "stm32746g_discovery_axim-flash\stm32f7_display.o"
-"stm32746g_discovery_axim-flash\stm32f7_echo_intr.o"
+"stm32746g_discovery_axim-flash\stm32f7_echo.o"
 "stm32746g_discovery_axim-flash\system_stm32f7xx.o"
 "stm32746g_discovery_axim-flash\stm32746g_discovery_ts.o"
 "stm32746g_discovery_axim-flash\stm32746g_discovery_lcd.o"

@@ -1,87 +1,71 @@
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7_sine_lut_buf.h"
+#include "stm32f7_sine_lut_buf.h"    // your board/HAL declarations
 
-#define SOURCE_FILE_NAME "stm32f7_sine_lut_buf.c"
+/* Private defines -----------------------------------------------------------*/
+#define SOURCE_FILE_NAME     "stm32f7_sine_lut_buf.c"
+#define AUDIO_FREQ           8000u
+#define LOOPLENGTH           8u
+#define BUFFER_LENGTH        100u
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Audio parameters */
-#define AUDIO_FREQ            8000 
-#define LOOPLENGTH 						8
-#define BUFFER_LENGTH         100
-/* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-extern int16_t rx_sample_L;
-extern SAI_HandleTypeDef haudio_in_sai;
-extern SAI_HandleTypeDef haudio_out_sai;
-
-static __IO uint8_t PlayComplete = 0;
-
-static int16_t sine_table[LOOPLENGTH] = {0, 7071, 10000, 7071, 0, -7071, -10000, -7071};
-float32_t buffer[BUFFER_LENGTH];
-int16_t sine_ptr = 0;
-int16_t buf_ptr = 0; 
+static __IO uint8_t  PlayComplete = 0;
+static int16_t       sine_table[LOOPLENGTH] = {0, 7071, 10000, 7071, 0, -7071, -10000, -7071};
+static int16_t       stereo_buf[LOOPLENGTH * 2];
+float32_t     buffer[BUFFER_LENGTH];
+uint32_t      sine_indx = 0;
+uint32_t      buff_indx = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 static void MPU_Config(void);
 static void SystemClock_Config(void);
-static void Error_Handler(void);
 static void CPU_CACHE_Enable(void);
-void GPIOI1_Init(void);
-void GPIOI1_Toggle(void);
-
-/* Private functions ---------------------------------------------------------*/
-void BSP_AUDIO_OUT_TransferComplete_CallBack(void)
-{	
-    BSP_LED_Toggle(LED1);
-    PlayComplete = 1;
-    buffer[buf_ptr] = sine_table[sine_ptr];
-    sine_ptr = (sine_ptr+1)%LOOPLENGTH;
-    buf_ptr = (buf_ptr+1)%BUFFER_LENGTH;
-}
-
-void GPIOI1_Init(void)
-{
-	RCC->AHB1ENR |= (1U<<8); 	// Enable AHB1 Clock for Port I
-	GPIOI->MODER |= (1U<<2); 	// Set Output Mode for PI1
-	GPIOI->MODER &= ~(1U<<3); // Set Output Mode for PI1
-}
-
-void GPIOI1_Toggle(void)
-{
-	GPIOI->ODR ^= (1U<<1);
-}
+static void Error_Handler(void);
 
 int main(void)
 {
-  /* Configure the MPU attributes */
-  MPU_Config();
+    /* Configure MPU, enable cache, HAL init, system clock */
+    MPU_Config();
+    CPU_CACHE_Enable();
+    HAL_Init();
+    SystemClock_Config();
 
-  /* Enable the CPU Cache */
-  CPU_CACHE_Enable();
+    /* LCD feedback */
+    stm32f7_LCD_init(AUDIO_FREQ, SOURCE_FILE_NAME, GRAPH);
 
-  HAL_Init();
-	
-  /* Configure the System clock to have a frequency of 216 MHz */
-  SystemClock_Config();
-	
-	stm32f7_LCD_init(AUDIO_FREQ, SOURCE_FILE_NAME, GRAPH);
-	
-	BSP_LED_Init(LED1);
-	GPIOI1_Init();
-	plotSamples(sine_table, LOOPLENGTH, 32);
-	
-	if (BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE, 50, AUDIO_FREQ) != AUDIO_OK) {
+    /* Plot the raw 8-sample LUT on the LCD */
+    plotSamples(sine_table, LOOPLENGTH, 32);
+
+    /* Build interleaved stereo buffer */
+    for (uint32_t i = 0; i < LOOPLENGTH; i++){
+        stereo_buf[2*i] = sine_table[i];  		// left slot
+        stereo_buf[2*i + 1] = sine_table[i];  // right slot
+    }
+
+    /* Init audio out @8 kHz */
+    if (BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE, 70, AUDIO_FREQ) != AUDIO_OK)
+        Error_Handler();
+
+    /* Force 2-slot (mono/stereo) mode */
+    BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);
+
+    /* Play the 16-sample (8�2) buffer = 8 frames ? 1 kHz tone */
+    if (BSP_AUDIO_OUT_Play((uint16_t*)stereo_buf, LOOPLENGTH * 2 * sizeof(int16_t)) != AUDIO_OK){
 			Error_Handler();
-	}
-	
-	if (BSP_AUDIO_OUT_Play((uint16_t*)sine_table, LOOPLENGTH * sizeof(int16_t)) != AUDIO_OK) {
-			Error_Handler();
-	}
-  /* Infinite loop */
-  while (1)
-  {
-  }
+		}
+
+    while (1){
+			if (PlayComplete){ 
+				PlayComplete = 0; 
+			} 
+		}
+}
+
+void BSP_AUDIO_OUT_TransferComplete_CallBack(void)
+{
+    PlayComplete = 1;
+    buffer[buff_indx] = sine_table[sine_indx];
+    buff_indx = (buff_indx + 1) % BUFFER_LENGTH;
+    sine_indx = (sine_indx + 1) % LOOPLENGTH;
 }
 
 /**
@@ -141,6 +125,39 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/* Override the weak clock-config to add 8 kHz support */
+void BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void *Params)
+{
+    RCC_PeriphCLKInitTypeDef clkcfg;
+    HAL_RCCEx_GetPeriphCLKConfig(&clkcfg);
+
+    /* Always drive SAI2 from PLLI2S */
+    clkcfg.PeriphClockSelection = RCC_PERIPHCLK_SAI2;
+    clkcfg.Sai2ClockSelection    = RCC_SAI2CLKSOURCE_PLLI2S;
+
+    if (AudioFreq == AUDIO_FREQUENCY_8K)
+    {
+        /* Want MCLK = 8 kHz � 256 = 2.048 MHz
+           PLLI2S VCO = (HSE/PLLM)�PLLI2SN = 25 MHz/25�256 = 256 MHz
+           first-level  = VCO/PLLI2SQ     = 256/5   = 51.2 MHz
+           final MCLK   = 51.2 MHz/25     = 2.048 MHz */
+        clkcfg.PLLI2S.PLLI2SN    = 256;
+        clkcfg.PLLI2S.PLLI2SQ    = 5;
+        clkcfg.PLLI2SDivQ        = 25;
+    }
+    else if ((AudioFreq == AUDIO_FREQUENCY_11K) ||
+             (AudioFreq == AUDIO_FREQUENCY_22K) ||
+             (AudioFreq == AUDIO_FREQUENCY_44K))
+    {
+        /* ST defaults for 11/22/44 kHz */
+        clkcfg.PLLI2S.PLLI2SN    = 429;
+        clkcfg.PLLI2S.PLLI2SQ    = 2;
+        clkcfg.PLLI2SDivQ        = 19;
+    }
+
+    HAL_RCCEx_PeriphCLKConfig(&clkcfg);
 }
 
 /**

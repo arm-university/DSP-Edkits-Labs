@@ -837,9 +837,9 @@
               <FilePath>..\Src\stm32f7_display.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7_loop_intr.c</FileName>
+              <FileName>stm32f7_loop_DMA.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_loop_intr.c</FilePath>
+              <FilePath>..\Src\stm32f7_loop_DMA.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1693,9 +1693,9 @@
               <FilePath>..\Src\stm32f7_display.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7_loop_intr.c</FileName>
+              <FileName>stm32f7_loop_DMA.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_loop_intr.c</FilePath>
+              <FilePath>..\Src\stm32f7_loop_DMA.c</FilePath>
             </File>
           </Files>
         </Group>

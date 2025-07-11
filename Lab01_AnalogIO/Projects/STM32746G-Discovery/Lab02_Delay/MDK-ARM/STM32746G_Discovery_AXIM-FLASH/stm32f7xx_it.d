@@ -1,5 +1,5 @@
 stm32746g_discovery_axim-flash/stm32f7xx_it.o: ..\Src\stm32f7xx_it.c \
-  ..\Inc\stm32f7xx_it.h ..\Inc\stm32f7_delay_intr.h \
+  ..\Inc\stm32f7xx_it.h ..\Inc\stm32f7_delay.h \
   ..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h \
   ..\Inc\stm32f7xx_hal_conf.h \
   ..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rcc.h \
