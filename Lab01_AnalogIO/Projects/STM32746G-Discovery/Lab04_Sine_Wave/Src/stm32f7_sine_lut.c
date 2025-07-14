@@ -8,8 +8,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 static __IO uint8_t  PlayComplete = 0;
-static int16_t       sine_table[LOOPLENGTH] = {0, 7071, 10000, 7071, 0, -7071, -10000, -7071};
-static int16_t       stereo_buf[LOOPLENGTH * 2];
+static int16_t sine_table[LOOPLENGTH] = {0, 7071, 10000, 7071, 0, -7071, -10000, -7071};
+static int16_t stereo_buf[LOOPLENGTH * 2];
 
 /* Private function prototypes -----------------------------------------------*/
 static void MPU_Config(void);

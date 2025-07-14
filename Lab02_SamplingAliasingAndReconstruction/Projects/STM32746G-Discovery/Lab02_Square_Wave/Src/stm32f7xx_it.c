@@ -20,7 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_it.h"
-#include "stm32f7_sine_lut_intr.h"
+#include "stm32f7_sine_lut.h"
 #include "stm32746g_discovery_audio.h"
 
 /** @addtogroup STM32F7xx_HAL_Examples
