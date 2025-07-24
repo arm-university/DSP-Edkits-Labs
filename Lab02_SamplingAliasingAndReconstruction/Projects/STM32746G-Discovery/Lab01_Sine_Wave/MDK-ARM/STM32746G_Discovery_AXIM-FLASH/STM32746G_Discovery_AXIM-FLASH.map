@@ -5850,9 +5850,9 @@ Section Cross References
     stm32f7_sine.o(.ARM.exidx.text.BSP_AUDIO_OUT_HalfTransfer_CallBack) refers to stm32f7_sine.o(.text.BSP_AUDIO_OUT_HalfTransfer_CallBack) for [Anonymous Symbol]
     stm32f7_sine.o(.text.update_buffer) refers to fastmathfunctions.o(.text.arm_sin_f32) for arm_sin_f32
     stm32f7_sine.o(.text.update_buffer) refers to stm32f7_display.o(.text.plotSamplesIntr) for plotSamplesIntr
+    stm32f7_sine.o(.text.update_buffer) refers to stm32f7_sine.o(.data.amplitude) for amplitude
     stm32f7_sine.o(.text.update_buffer) refers to stm32f7_sine.o(.bss..L_MergedGlobals) for [Anonymous Symbol]
     stm32f7_sine.o(.text.update_buffer) refers to stm32f7_sine.o(.bss.stereo_buf) for [Anonymous Symbol]
-    stm32f7_sine.o(.text.update_buffer) refers to stm32f7_sine.o(.data.amplitude) for amplitude
     stm32f7_sine.o(.ARM.exidx.text.update_buffer) refers to stm32f7_sine.o(.text.update_buffer) for [Anonymous Symbol]
     stm32f7_sine.o(.text.BSP_AUDIO_OUT_TransferComplete_CallBack) refers to stm32f7_sine.o(.text.update_buffer) for update_buffer
     stm32f7_sine.o(.ARM.exidx.text.BSP_AUDIO_OUT_TransferComplete_CallBack) refers to stm32f7_sine.o(.text.BSP_AUDIO_OUT_TransferComplete_CallBack) for [Anonymous Symbol]
@@ -18104,52 +18104,52 @@ Image Symbol Table
     __arm_cp.9_1                             0x0800455c   Number         4  stm32f7_display.o(.text.plotSamplesIntr)
     __arm_cp.9_2                             0x08004560   Number         4  stm32f7_display.o(.text.plotSamplesIntr)
     [Anonymous Symbol]                       0x08004574   Section        0  stm32f7_display.o(.text.stm32f7_LCD_init)
-    update_buffer                            0x080045a1   Thumb Code   140  stm32f7_sine.o(.text.update_buffer)
+    update_buffer                            0x080045a1   Thumb Code   116  stm32f7_sine.o(.text.update_buffer)
     [Anonymous Symbol]                       0x080045a0   Section        0  stm32f7_sine.o(.text.update_buffer)
-    __arm_cp.1_0                             0x0800462c   Number         4  stm32f7_sine.o(.text.update_buffer)
-    __arm_cp.1_1                             0x08004630   Number         4  stm32f7_sine.o(.text.update_buffer)
-    __arm_cp.1_2                             0x08004634   Number         4  stm32f7_sine.o(.text.update_buffer)
-    [Anonymous Symbol]                       0x08004640   Section        0  wm8994.o(.text.wm8994_DeInit)
-    [Anonymous Symbol]                       0x08004644   Section        0  wm8994.o(.text.wm8994_Init)
-    [Anonymous Symbol]                       0x08004ac4   Section        0  wm8994.o(.text.wm8994_Pause)
-    [Anonymous Symbol]                       0x08004adc   Section        0  wm8994.o(.text.wm8994_Play)
-    [Anonymous Symbol]                       0x08004ae6   Section        0  wm8994.o(.text.wm8994_ReadID)
-    [Anonymous Symbol]                       0x08004af8   Section        0  wm8994.o(.text.wm8994_Reset)
-    __arm_cp.11_0                            0x08004b10   Number         4  wm8994.o(.text.wm8994_Reset)
-    [Anonymous Symbol]                       0x08004b14   Section        0  wm8994.o(.text.wm8994_Resume)
-    [Anonymous Symbol]                       0x08004b20   Section        0  wm8994.o(.text.wm8994_SetFrequency)
-    __arm_cp.7_0                             0x08004b88   Number         4  wm8994.o(.text.wm8994_SetFrequency)
-    [Anonymous Symbol]                       0x08004b8c   Section        0  wm8994.o(.text.wm8994_SetMute)
-    __arm_cp.9_0                             0x08004bc4   Number         4  wm8994.o(.text.wm8994_SetMute)
-    [Anonymous Symbol]                       0x08004bc8   Section        0  wm8994.o(.text.wm8994_SetOutputMode)
-    __arm_cp.10_0                            0x08004c24   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
-    __arm_cp.10_1                            0x08004c28   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
-    __arm_cp.10_2                            0x08004c2c   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
-    [Anonymous Symbol]                       0x08004c30   Section        0  wm8994.o(.text.wm8994_SetVolume)
-    [Anonymous Symbol]                       0x08004d1c   Section        0  wm8994.o(.text.wm8994_Stop)
-    __arm_cp.6_0                             0x08004d7c   Number         4  wm8994.o(.text.wm8994_Stop)
-    __arm_cp.6_1                             0x08004d80   Number         4  wm8994.o(.text.wm8994_Stop)
-    i.__0sprintf                             0x08004d84   Section        0  printfa.o(i.__0sprintf)
-    i.__scatterload_copy                     0x08004dac   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08004dba   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08004dbc   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x08004dcd   Thumb Code   366  printfa.o(i._fp_digits)
-    i._fp_digits                             0x08004dcc   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x08004f51   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_core                           0x08004f50   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x0800562d   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x0800562c   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x08005651   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x08005650   Section        0  printfa.o(i._printf_pre_padding)
-    _sputc                                   0x0800567f   Thumb Code    10  printfa.o(i._sputc)
-    i._sputc                                 0x0800567e   Section        0  printfa.o(i._sputc)
-    [Anonymous Symbol]                       0x08005688   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode)
-    [Anonymous Symbol]                       0x0800568e   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode.1)
-    [Anonymous Symbol]                       0x08005694   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode.2)
-    armlogo                                  0x080081b6   Data       140671  stm32f7_display.o(.rodata.armlogo)
-    [Anonymous Symbol]                       0x080081b6   Section        0  stm32f7_display.o(.rodata.armlogo)
-    [Anonymous Symbol]                       0x0802a738   Section        0  stm32f7xx_hal_ltdc.o(.rodata.cst32)
-    [Anonymous Symbol]                       0x0802af5c   Section        0  stm32f7_display.o(.rodata.str1.1)
+    __arm_cp.1_0                             0x08004614   Number         4  stm32f7_sine.o(.text.update_buffer)
+    __arm_cp.1_1                             0x08004618   Number         4  stm32f7_sine.o(.text.update_buffer)
+    __arm_cp.1_2                             0x0800461c   Number         4  stm32f7_sine.o(.text.update_buffer)
+    [Anonymous Symbol]                       0x08004628   Section        0  wm8994.o(.text.wm8994_DeInit)
+    [Anonymous Symbol]                       0x0800462c   Section        0  wm8994.o(.text.wm8994_Init)
+    [Anonymous Symbol]                       0x08004aac   Section        0  wm8994.o(.text.wm8994_Pause)
+    [Anonymous Symbol]                       0x08004ac4   Section        0  wm8994.o(.text.wm8994_Play)
+    [Anonymous Symbol]                       0x08004ace   Section        0  wm8994.o(.text.wm8994_ReadID)
+    [Anonymous Symbol]                       0x08004ae0   Section        0  wm8994.o(.text.wm8994_Reset)
+    __arm_cp.11_0                            0x08004af8   Number         4  wm8994.o(.text.wm8994_Reset)
+    [Anonymous Symbol]                       0x08004afc   Section        0  wm8994.o(.text.wm8994_Resume)
+    [Anonymous Symbol]                       0x08004b08   Section        0  wm8994.o(.text.wm8994_SetFrequency)
+    __arm_cp.7_0                             0x08004b70   Number         4  wm8994.o(.text.wm8994_SetFrequency)
+    [Anonymous Symbol]                       0x08004b74   Section        0  wm8994.o(.text.wm8994_SetMute)
+    __arm_cp.9_0                             0x08004bac   Number         4  wm8994.o(.text.wm8994_SetMute)
+    [Anonymous Symbol]                       0x08004bb0   Section        0  wm8994.o(.text.wm8994_SetOutputMode)
+    __arm_cp.10_0                            0x08004c0c   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
+    __arm_cp.10_1                            0x08004c10   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
+    __arm_cp.10_2                            0x08004c14   Number         4  wm8994.o(.text.wm8994_SetOutputMode)
+    [Anonymous Symbol]                       0x08004c18   Section        0  wm8994.o(.text.wm8994_SetVolume)
+    [Anonymous Symbol]                       0x08004d04   Section        0  wm8994.o(.text.wm8994_Stop)
+    __arm_cp.6_0                             0x08004d64   Number         4  wm8994.o(.text.wm8994_Stop)
+    __arm_cp.6_1                             0x08004d68   Number         4  wm8994.o(.text.wm8994_Stop)
+    i.__0sprintf                             0x08004d6c   Section        0  printfa.o(i.__0sprintf)
+    i.__scatterload_copy                     0x08004d94   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08004da2   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08004da4   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x08004db5   Thumb Code   366  printfa.o(i._fp_digits)
+    i._fp_digits                             0x08004db4   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x08004f39   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_core                           0x08004f38   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x08005615   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x08005614   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x08005639   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x08005638   Section        0  printfa.o(i._printf_pre_padding)
+    _sputc                                   0x08005667   Thumb Code    10  printfa.o(i._sputc)
+    i._sputc                                 0x08005666   Section        0  printfa.o(i._sputc)
+    [Anonymous Symbol]                       0x08005670   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode)
+    [Anonymous Symbol]                       0x08005676   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode.1)
+    [Anonymous Symbol]                       0x0800567c   Section        0  wm8994.o(.rodata..Lswitch.table.wm8994_SetOutputMode.2)
+    armlogo                                  0x0800819e   Data       140671  stm32f7_display.o(.rodata.armlogo)
+    [Anonymous Symbol]                       0x0800819e   Section        0  stm32f7_display.o(.rodata.armlogo)
+    [Anonymous Symbol]                       0x0802a720   Section        0  stm32f7xx_hal_ltdc.o(.rodata.cst32)
+    [Anonymous Symbol]                       0x0802af44   Section        0  stm32f7_display.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x20000000   Section        0  stm32f7xx_hal.o(.data..L_MergedGlobals)
     outputEnabled                            0x20000070   Data           1  wm8994.o(.bss..L_MergedGlobals)
     [Anonymous Symbol]                       0x20000070   Section        0  wm8994.o(.bss..L_MergedGlobals)
@@ -18157,27 +18157,26 @@ Image Symbol Table
     ColdStartup                              0x20000075   Data           1  wm8994.o(.bss..L_MergedGlobals)
     [Anonymous Symbol]                       0x20000078   Section        0  stm32f7_display.o(.bss..L_MergedGlobals)
     [Anonymous Symbol]                       0x20000094   Section        0  stm32f7_sine.o(.bss..L_MergedGlobals)
-    audio_buf                                0x2000009c   Data          64  stm32f7_sine.o(.bss..L_MergedGlobals)
-    ActiveLayer                              0x200000dc   Data           4  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
-    [Anonymous Symbol]                       0x200000dc   Section        0  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
-    DrawProp                                 0x200000e0   Data          24  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
-    hDma2dHandler                            0x200000f8   Data          64  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
-    BSP_SDRAM_Init.sdramstatus               0x20000138   Data           1  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    [Anonymous Symbol]                       0x20000138   Section        0  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    BSP_SDRAM_DeInit.sdramstatus             0x20000139   Data           1  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    Command                                  0x2000013c   Data          16  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    Timing                                   0x2000014c   Data          28  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    BSP_AUDIO_OUT_MspInit.hdma_sai_tx        0x2000019c   Data          96  stm32746g_discovery_audio.o(.bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx)
-    [Anonymous Symbol]                       0x2000019c   Section        0  stm32746g_discovery_audio.o(.bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx)
-    BSP_LCD_ClockConfig.periph_clk_init_struct 0x200001fc   Data         132  stm32746g_discovery_lcd.o(.bss.BSP_LCD_ClockConfig.periph_clk_init_struct)
-    [Anonymous Symbol]                       0x200001fc   Section        0  stm32746g_discovery_lcd.o(.bss.BSP_LCD_ClockConfig.periph_clk_init_struct)
-    BSP_SDRAM_MspInit.dma_handle             0x20000280   Data          96  stm32746g_discovery_sdram.o(.bss.BSP_SDRAM_MspInit.dma_handle)
-    [Anonymous Symbol]                       0x20000280   Section        0  stm32746g_discovery_sdram.o(.bss.BSP_SDRAM_MspInit.dma_handle)
-    hI2cAudioHandler                         0x200002e4   Data          84  stm32746g_discovery.o(.bss.hI2cAudioHandler)
-    [Anonymous Symbol]                       0x200002e4   Section        0  stm32746g_discovery.o(.bss.hI2cAudioHandler)
-    stereo_buf                               0x200004e8   Data         128  stm32f7_sine.o(.bss.stereo_buf)
-    [Anonymous Symbol]                       0x200004e8   Section        0  stm32f7_sine.o(.bss.stereo_buf)
-    STACK                                    0x20000770   Section     1024  startup_stm32f746xx.o(STACK)
+    ActiveLayer                              0x2000009c   Data           4  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
+    [Anonymous Symbol]                       0x2000009c   Section        0  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
+    DrawProp                                 0x200000a0   Data          24  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
+    hDma2dHandler                            0x200000b8   Data          64  stm32746g_discovery_lcd.o(.bss..L_MergedGlobals)
+    BSP_SDRAM_Init.sdramstatus               0x200000f8   Data           1  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    [Anonymous Symbol]                       0x200000f8   Section        0  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    BSP_SDRAM_DeInit.sdramstatus             0x200000f9   Data           1  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    Command                                  0x200000fc   Data          16  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    Timing                                   0x2000010c   Data          28  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    BSP_AUDIO_OUT_MspInit.hdma_sai_tx        0x2000015c   Data          96  stm32746g_discovery_audio.o(.bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx)
+    [Anonymous Symbol]                       0x2000015c   Section        0  stm32746g_discovery_audio.o(.bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx)
+    BSP_LCD_ClockConfig.periph_clk_init_struct 0x200001bc   Data         132  stm32746g_discovery_lcd.o(.bss.BSP_LCD_ClockConfig.periph_clk_init_struct)
+    [Anonymous Symbol]                       0x200001bc   Section        0  stm32746g_discovery_lcd.o(.bss.BSP_LCD_ClockConfig.periph_clk_init_struct)
+    BSP_SDRAM_MspInit.dma_handle             0x20000240   Data          96  stm32746g_discovery_sdram.o(.bss.BSP_SDRAM_MspInit.dma_handle)
+    [Anonymous Symbol]                       0x20000240   Section        0  stm32746g_discovery_sdram.o(.bss.BSP_SDRAM_MspInit.dma_handle)
+    hI2cAudioHandler                         0x200002a4   Data          84  stm32746g_discovery.o(.bss.hI2cAudioHandler)
+    [Anonymous Symbol]                       0x200002a4   Section        0  stm32746g_discovery.o(.bss.hI2cAudioHandler)
+    stereo_buf                               0x200004a8   Data         128  stm32f7_sine.o(.bss.stereo_buf)
+    [Anonymous Symbol]                       0x200004a8   Section        0  stm32f7_sine.o(.bss.stereo_buf)
+    STACK                                    0x20000730   Section     1024  startup_stm32f746xx.o(STACK)
 
     Global Symbols
 
@@ -18494,33 +18493,33 @@ Image Symbol Table
     main                                     0x080042bd   Thumb Code   356  stm32f7_sine.o(.text.main)
     plotSamplesIntr                          0x08004449   Thumb Code   272  stm32f7_display.o(.text.plotSamplesIntr)
     stm32f7_LCD_init                         0x08004575   Thumb Code    42  stm32f7_display.o(.text.stm32f7_LCD_init)
-    wm8994_DeInit                            0x08004641   Thumb Code     4  wm8994.o(.text.wm8994_DeInit)
-    wm8994_Init                              0x08004645   Thumb Code  1152  wm8994.o(.text.wm8994_Init)
-    wm8994_Pause                             0x08004ac5   Thumb Code    24  wm8994.o(.text.wm8994_Pause)
-    wm8994_Play                              0x08004add   Thumb Code    10  wm8994.o(.text.wm8994_Play)
-    wm8994_ReadID                            0x08004ae7   Thumb Code    18  wm8994.o(.text.wm8994_ReadID)
-    wm8994_Reset                             0x08004af9   Thumb Code    24  wm8994.o(.text.wm8994_Reset)
-    wm8994_Resume                            0x08004b15   Thumb Code    10  wm8994.o(.text.wm8994_Resume)
-    wm8994_SetFrequency                      0x08004b21   Thumb Code   104  wm8994.o(.text.wm8994_SetFrequency)
-    wm8994_SetMute                           0x08004b8d   Thumb Code    56  wm8994.o(.text.wm8994_SetMute)
-    wm8994_SetOutputMode                     0x08004bc9   Thumb Code    92  wm8994.o(.text.wm8994_SetOutputMode)
-    wm8994_SetVolume                         0x08004c31   Thumb Code   236  wm8994.o(.text.wm8994_SetVolume)
-    wm8994_Stop                              0x08004d1d   Thumb Code    96  wm8994.o(.text.wm8994_Stop)
-    __0sprintf                               0x08004d85   Thumb Code    34  printfa.o(i.__0sprintf)
-    __1sprintf                               0x08004d85   Thumb Code     0  printfa.o(i.__0sprintf)
-    __2sprintf                               0x08004d85   Thumb Code     0  printfa.o(i.__0sprintf)
-    __c89sprintf                             0x08004d85   Thumb Code     0  printfa.o(i.__0sprintf)
-    sprintf                                  0x08004d85   Thumb Code     0  printfa.o(i.__0sprintf)
-    __scatterload_copy                       0x08004dad   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08004dbb   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08004dbd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    AHBPrescTable                            0x0800569a   Data          16  system_stm32f7xx.o(.rodata.AHBPrescTable)
-    Font12_Table                             0x080056aa   Data        1140  stm32746g_discovery_lcd.o(.rodata.Font12_Table)
-    Font16_Table                             0x08005b1e   Data        3040  stm32746g_discovery_lcd.o(.rodata.Font16_Table)
-    Font24_Table                             0x080066fe   Data        6840  stm32746g_discovery_lcd.o(.rodata.Font24_Table)
-    sinTable_f32                             0x0802a758   Data        2052  commontables.o(.rodata.sinTable_f32)
-    Region$$Table$$Base                      0x0802af7c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0802af9c   Number         0  anon$$obj.o(Region$$Table)
+    wm8994_DeInit                            0x08004629   Thumb Code     4  wm8994.o(.text.wm8994_DeInit)
+    wm8994_Init                              0x0800462d   Thumb Code  1152  wm8994.o(.text.wm8994_Init)
+    wm8994_Pause                             0x08004aad   Thumb Code    24  wm8994.o(.text.wm8994_Pause)
+    wm8994_Play                              0x08004ac5   Thumb Code    10  wm8994.o(.text.wm8994_Play)
+    wm8994_ReadID                            0x08004acf   Thumb Code    18  wm8994.o(.text.wm8994_ReadID)
+    wm8994_Reset                             0x08004ae1   Thumb Code    24  wm8994.o(.text.wm8994_Reset)
+    wm8994_Resume                            0x08004afd   Thumb Code    10  wm8994.o(.text.wm8994_Resume)
+    wm8994_SetFrequency                      0x08004b09   Thumb Code   104  wm8994.o(.text.wm8994_SetFrequency)
+    wm8994_SetMute                           0x08004b75   Thumb Code    56  wm8994.o(.text.wm8994_SetMute)
+    wm8994_SetOutputMode                     0x08004bb1   Thumb Code    92  wm8994.o(.text.wm8994_SetOutputMode)
+    wm8994_SetVolume                         0x08004c19   Thumb Code   236  wm8994.o(.text.wm8994_SetVolume)
+    wm8994_Stop                              0x08004d05   Thumb Code    96  wm8994.o(.text.wm8994_Stop)
+    __0sprintf                               0x08004d6d   Thumb Code    34  printfa.o(i.__0sprintf)
+    __1sprintf                               0x08004d6d   Thumb Code     0  printfa.o(i.__0sprintf)
+    __2sprintf                               0x08004d6d   Thumb Code     0  printfa.o(i.__0sprintf)
+    __c89sprintf                             0x08004d6d   Thumb Code     0  printfa.o(i.__0sprintf)
+    sprintf                                  0x08004d6d   Thumb Code     0  printfa.o(i.__0sprintf)
+    __scatterload_copy                       0x08004d95   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08004da3   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08004da5   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    AHBPrescTable                            0x08005682   Data          16  system_stm32f7xx.o(.rodata.AHBPrescTable)
+    Font12_Table                             0x08005692   Data        1140  stm32746g_discovery_lcd.o(.rodata.Font12_Table)
+    Font16_Table                             0x08005b06   Data        3040  stm32746g_discovery_lcd.o(.rodata.Font16_Table)
+    Font24_Table                             0x080066e6   Data        6840  stm32746g_discovery_lcd.o(.rodata.Font24_Table)
+    sinTable_f32                             0x0802a740   Data        2052  commontables.o(.rodata.sinTable_f32)
+    Region$$Table$$Base                      0x0802af64   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0802af84   Number         0  anon$$obj.o(Region$$Table)
     uwTickFreq                               0x20000000   Data           1  stm32f7xx_hal.o(.data..L_MergedGlobals)
     uwTickPrio                               0x20000004   Data           4  stm32f7xx_hal.o(.data..L_MergedGlobals)
     BUTTON_PORT                              0x20000008   Data          12  stm32746g_discovery.o(.data.BUTTON_PORT)
@@ -18542,14 +18541,14 @@ Image Symbol Table
     fixymax                                  0x20000090   Data           4  stm32f7_display.o(.bss..L_MergedGlobals)
     theta                                    0x20000094   Data           4  stm32f7_sine.o(.bss..L_MergedGlobals)
     theta_increment                          0x20000098   Data           4  stm32f7_sine.o(.bss..L_MergedGlobals)
-    sdramHandle                              0x20000168   Data          52  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
-    audio_drv                                0x200002e0   Data           4  stm32746g_discovery_audio.o(.bss.audio_drv)
-    hLtdcHandler                             0x20000338   Data         168  stm32746g_discovery_lcd.o(.bss.hLtdcHandler)
-    haudio_in_sai                            0x200003e0   Data         132  stm32746g_discovery_audio.o(.bss.haudio_in_sai)
-    haudio_out_sai                           0x20000464   Data         132  stm32746g_discovery_audio.o(.bss.haudio_out_sai)
-    temp_buffer                              0x20000568   Data         512  stm32f7_display.o(.bss.temp_buffer)
-    uwTick                                   0x20000768   Data           4  stm32f7xx_hal.o(.bss.uwTick)
-    __initial_sp                             0x20000b70   Data           0  startup_stm32f746xx.o(STACK)
+    sdramHandle                              0x20000128   Data          52  stm32746g_discovery_sdram.o(.bss..L_MergedGlobals)
+    audio_drv                                0x200002a0   Data           4  stm32746g_discovery_audio.o(.bss.audio_drv)
+    hLtdcHandler                             0x200002f8   Data         168  stm32746g_discovery_lcd.o(.bss.hLtdcHandler)
+    haudio_in_sai                            0x200003a0   Data         132  stm32746g_discovery_audio.o(.bss.haudio_in_sai)
+    haudio_out_sai                           0x20000424   Data         132  stm32746g_discovery_audio.o(.bss.haudio_out_sai)
+    temp_buffer                              0x20000528   Data         512  stm32f7_display.o(.bss.temp_buffer)
+    uwTick                                   0x20000728   Data           4  stm32f7xx_hal.o(.bss.uwTick)
+    __initial_sp                             0x20000b30   Data           0  startup_stm32f746xx.o(STACK)
 
 
 
@@ -18559,9 +18558,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001c9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0002b010, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0002aff8, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0002af9c, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0002af84, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -18842,79 +18841,79 @@ Memory Map of the image
     0x08004448   0x08004448   0x0000012c   Code   RO         4737    .text.plotSamplesIntr  stm32f7_display.o
     0x08004574   0x08004574   0x0000002a   Code   RO         4749    .text.stm32f7_LCD_init  stm32f7_display.o
     0x0800459e   0x0800459e   0x00000002   PAD
-    0x080045a0   0x080045a0   0x000000a0   Code   RO         4802    .text.update_buffer  stm32f7_sine.o
-    0x08004640   0x08004640   0x00000004   Code   RO           69    .text.wm8994_DeInit  wm8994.o
-    0x08004644   0x08004644   0x00000480   Code   RO           67    .text.wm8994_Init   wm8994.o
-    0x08004ac4   0x08004ac4   0x00000018   Code   RO           75    .text.wm8994_Pause  wm8994.o
-    0x08004adc   0x08004adc   0x0000000a   Code   RO           73    .text.wm8994_Play   wm8994.o
-    0x08004ae6   0x08004ae6   0x00000012   Code   RO           71    .text.wm8994_ReadID  wm8994.o
-    0x08004af8   0x08004af8   0x0000001c   Code   RO           89    .text.wm8994_Reset  wm8994.o
-    0x08004b14   0x08004b14   0x0000000a   Code   RO           77    .text.wm8994_Resume  wm8994.o
-    0x08004b1e   0x08004b1e   0x00000002   PAD
-    0x08004b20   0x08004b20   0x0000006c   Code   RO           81    .text.wm8994_SetFrequency  wm8994.o
-    0x08004b8c   0x08004b8c   0x0000003c   Code   RO           85    .text.wm8994_SetMute  wm8994.o
-    0x08004bc8   0x08004bc8   0x00000068   Code   RO           87    .text.wm8994_SetOutputMode  wm8994.o
-    0x08004c30   0x08004c30   0x000000ec   Code   RO           83    .text.wm8994_SetVolume  wm8994.o
-    0x08004d1c   0x08004d1c   0x00000068   Code   RO           79    .text.wm8994_Stop   wm8994.o
-    0x08004d84   0x08004d84   0x00000028   Code   RO         8325    i.__0sprintf        mc_w.l(printfa.o)
-    0x08004dac   0x08004dac   0x0000000e   Code   RO         8498    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08004dba   0x08004dba   0x00000002   Code   RO         8499    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08004dbc   0x08004dbc   0x0000000e   Code   RO         8500    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08004dca   0x08004dca   0x00000002   PAD
-    0x08004dcc   0x08004dcc   0x00000184   Code   RO         8330    i._fp_digits        mc_w.l(printfa.o)
-    0x08004f50   0x08004f50   0x000006dc   Code   RO         8331    i._printf_core      mc_w.l(printfa.o)
-    0x0800562c   0x0800562c   0x00000024   Code   RO         8332    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08005650   0x08005650   0x0000002e   Code   RO         8333    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x0800567e   0x0800567e   0x0000000a   Code   RO         8335    i._sputc            mc_w.l(printfa.o)
-    0x08005688   0x08005688   0x00000006   Data   RO          106    .rodata..Lswitch.table.wm8994_SetOutputMode  wm8994.o
-    0x0800568e   0x0800568e   0x00000006   Data   RO          107    .rodata..Lswitch.table.wm8994_SetOutputMode.1  wm8994.o
-    0x08005694   0x08005694   0x00000006   Data   RO          108    .rodata..Lswitch.table.wm8994_SetOutputMode.2  wm8994.o
-    0x0800569a   0x0800569a   0x00000010   Data   RO         4830    .rodata.AHBPrescTable  system_stm32f7xx.o
-    0x080056aa   0x080056aa   0x00000474   Data   RO         4999    .rodata.Font12_Table  stm32746g_discovery_lcd.o
-    0x08005b1e   0x08005b1e   0x00000be0   Data   RO         4997    .rodata.Font16_Table  stm32746g_discovery_lcd.o
-    0x080066fe   0x080066fe   0x00001ab8   Data   RO         4993    .rodata.Font24_Table  stm32746g_discovery_lcd.o
-    0x080081b6   0x080081b6   0x0002257f   Data   RO         4789    .rodata.armlogo     stm32f7_display.o
-    0x0802a735   0x0802a735   0x00000003   PAD
-    0x0802a738   0x0802a738   0x00000020   Data   RO         3181    .rodata.cst32       stm32f7xx_hal_ltdc.o
-    0x0802a758   0x0802a758   0x00000804   Data   RO         5685    .rodata.sinTable_f32  commontables.o
-    0x0802af5c   0x0802af5c   0x00000020   Data   RO         4788    .rodata.str1.1      stm32f7_display.o
-    0x0802af7c   0x0802af7c   0x00000020   Data   RO         8497    Region$$Table       anon$$obj.o
+    0x080045a0   0x080045a0   0x00000088   Code   RO         4802    .text.update_buffer  stm32f7_sine.o
+    0x08004628   0x08004628   0x00000004   Code   RO           69    .text.wm8994_DeInit  wm8994.o
+    0x0800462c   0x0800462c   0x00000480   Code   RO           67    .text.wm8994_Init   wm8994.o
+    0x08004aac   0x08004aac   0x00000018   Code   RO           75    .text.wm8994_Pause  wm8994.o
+    0x08004ac4   0x08004ac4   0x0000000a   Code   RO           73    .text.wm8994_Play   wm8994.o
+    0x08004ace   0x08004ace   0x00000012   Code   RO           71    .text.wm8994_ReadID  wm8994.o
+    0x08004ae0   0x08004ae0   0x0000001c   Code   RO           89    .text.wm8994_Reset  wm8994.o
+    0x08004afc   0x08004afc   0x0000000a   Code   RO           77    .text.wm8994_Resume  wm8994.o
+    0x08004b06   0x08004b06   0x00000002   PAD
+    0x08004b08   0x08004b08   0x0000006c   Code   RO           81    .text.wm8994_SetFrequency  wm8994.o
+    0x08004b74   0x08004b74   0x0000003c   Code   RO           85    .text.wm8994_SetMute  wm8994.o
+    0x08004bb0   0x08004bb0   0x00000068   Code   RO           87    .text.wm8994_SetOutputMode  wm8994.o
+    0x08004c18   0x08004c18   0x000000ec   Code   RO           83    .text.wm8994_SetVolume  wm8994.o
+    0x08004d04   0x08004d04   0x00000068   Code   RO           79    .text.wm8994_Stop   wm8994.o
+    0x08004d6c   0x08004d6c   0x00000028   Code   RO         8325    i.__0sprintf        mc_w.l(printfa.o)
+    0x08004d94   0x08004d94   0x0000000e   Code   RO         8498    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08004da2   0x08004da2   0x00000002   Code   RO         8499    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08004da4   0x08004da4   0x0000000e   Code   RO         8500    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08004db2   0x08004db2   0x00000002   PAD
+    0x08004db4   0x08004db4   0x00000184   Code   RO         8330    i._fp_digits        mc_w.l(printfa.o)
+    0x08004f38   0x08004f38   0x000006dc   Code   RO         8331    i._printf_core      mc_w.l(printfa.o)
+    0x08005614   0x08005614   0x00000024   Code   RO         8332    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08005638   0x08005638   0x0000002e   Code   RO         8333    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08005666   0x08005666   0x0000000a   Code   RO         8335    i._sputc            mc_w.l(printfa.o)
+    0x08005670   0x08005670   0x00000006   Data   RO          106    .rodata..Lswitch.table.wm8994_SetOutputMode  wm8994.o
+    0x08005676   0x08005676   0x00000006   Data   RO          107    .rodata..Lswitch.table.wm8994_SetOutputMode.1  wm8994.o
+    0x0800567c   0x0800567c   0x00000006   Data   RO          108    .rodata..Lswitch.table.wm8994_SetOutputMode.2  wm8994.o
+    0x08005682   0x08005682   0x00000010   Data   RO         4830    .rodata.AHBPrescTable  system_stm32f7xx.o
+    0x08005692   0x08005692   0x00000474   Data   RO         4999    .rodata.Font12_Table  stm32746g_discovery_lcd.o
+    0x08005b06   0x08005b06   0x00000be0   Data   RO         4997    .rodata.Font16_Table  stm32746g_discovery_lcd.o
+    0x080066e6   0x080066e6   0x00001ab8   Data   RO         4993    .rodata.Font24_Table  stm32746g_discovery_lcd.o
+    0x0800819e   0x0800819e   0x0002257f   Data   RO         4789    .rodata.armlogo     stm32f7_display.o
+    0x0802a71d   0x0802a71d   0x00000003   PAD
+    0x0802a720   0x0802a720   0x00000020   Data   RO         3181    .rodata.cst32       stm32f7xx_hal_ltdc.o
+    0x0802a740   0x0802a740   0x00000804   Data   RO         5685    .rodata.sinTable_f32  commontables.o
+    0x0802af44   0x0802af44   0x00000020   Data   RO         4788    .rodata.str1.1      stm32f7_display.o
+    0x0802af64   0x0802af64   0x00000020   Data   RO         8497    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0802afa0, Size: 0x00000b70, Max: 0x00050000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0802af88, Size: 0x00000b30, Max: 0x00050000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0802afa0   0x00000008   Data   RW         3056    .data..L_MergedGlobals  stm32f7xx_hal.o
-    0x20000008   0x0802afa8   0x0000000c   Data   RW         5087    .data.BUTTON_PORT   stm32746g_discovery.o
-    0x20000014   0x0802afb4   0x00000008   Data   RW         5000    .data.Font12        stm32746g_discovery_lcd.o
-    0x2000001c   0x0802afbc   0x00000008   Data   RW         4998    .data.Font16        stm32746g_discovery_lcd.o
-    0x20000024   0x0802afc4   0x00000008   Data   RW         4994    .data.Font24        stm32746g_discovery_lcd.o
-    0x2000002c   0x0802afcc   0x00000004   Data   RW         4829    .data.SystemCoreClock  system_stm32f7xx.o
-    0x20000030   0x0802afd0   0x00000004   Data   RW         4813    .data.amplitude     stm32f7_sine.o
-    0x20000034   0x0802afd4   0x00000004   Data   RW         4787    .data.refresh_counter_factor  stm32f7_display.o
-    0x20000038   0x0802afd8   0x00000004   Data   RW         4812    .data.sine_frequency  stm32f7_sine.o
-    0x2000003c   0x0802afdc   0x00000030   Data   RW          105    .data.wm8994_drv    wm8994.o
-    0x2000006c   0x0802b00c   0x00000004   PAD
+    0x20000000   0x0802af88   0x00000008   Data   RW         3056    .data..L_MergedGlobals  stm32f7xx_hal.o
+    0x20000008   0x0802af90   0x0000000c   Data   RW         5087    .data.BUTTON_PORT   stm32746g_discovery.o
+    0x20000014   0x0802af9c   0x00000008   Data   RW         5000    .data.Font12        stm32746g_discovery_lcd.o
+    0x2000001c   0x0802afa4   0x00000008   Data   RW         4998    .data.Font16        stm32746g_discovery_lcd.o
+    0x20000024   0x0802afac   0x00000008   Data   RW         4994    .data.Font24        stm32746g_discovery_lcd.o
+    0x2000002c   0x0802afb4   0x00000004   Data   RW         4829    .data.SystemCoreClock  system_stm32f7xx.o
+    0x20000030   0x0802afb8   0x00000004   Data   RW         4813    .data.amplitude     stm32f7_sine.o
+    0x20000034   0x0802afbc   0x00000004   Data   RW         4787    .data.refresh_counter_factor  stm32f7_display.o
+    0x20000038   0x0802afc0   0x00000004   Data   RW         4812    .data.sine_frequency  stm32f7_sine.o
+    0x2000003c   0x0802afc4   0x00000030   Data   RW          105    .data.wm8994_drv    wm8994.o
+    0x2000006c   0x0802aff4   0x00000004   PAD
     0x20000070        -       0x00000006   Zero   RW          109    .bss..L_MergedGlobals  wm8994.o
-    0x20000076   0x0802b00c   0x00000002   PAD
+    0x20000076   0x0802aff4   0x00000002   PAD
     0x20000078        -       0x0000001c   Zero   RW         4791    .bss..L_MergedGlobals  stm32f7_display.o
-    0x20000094        -       0x00000048   Zero   RW         4816    .bss..L_MergedGlobals  stm32f7_sine.o
-    0x200000dc        -       0x0000005c   Zero   RW         5005    .bss..L_MergedGlobals  stm32746g_discovery_lcd.o
-    0x20000138        -       0x00000064   Zero   RW         5344    .bss..L_MergedGlobals  stm32746g_discovery_sdram.o
-    0x2000019c        -       0x00000060   Zero   RW         5201    .bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx  stm32746g_discovery_audio.o
-    0x200001fc        -       0x00000084   Zero   RW         5004    .bss.BSP_LCD_ClockConfig.periph_clk_init_struct  stm32746g_discovery_lcd.o
-    0x20000280        -       0x00000060   Zero   RW         5342    .bss.BSP_SDRAM_MspInit.dma_handle  stm32746g_discovery_sdram.o
-    0x200002e0        -       0x00000004   Zero   RW         5200    .bss.audio_drv      stm32746g_discovery_audio.o
-    0x200002e4        -       0x00000054   Zero   RW         5094    .bss.hI2cAudioHandler  stm32746g_discovery.o
-    0x20000338        -       0x000000a8   Zero   RW         5003    .bss.hLtdcHandler   stm32746g_discovery_lcd.o
-    0x200003e0        -       0x00000084   Zero   RW         5198    .bss.haudio_in_sai  stm32746g_discovery_audio.o
-    0x20000464        -       0x00000084   Zero   RW         5197    .bss.haudio_out_sai  stm32746g_discovery_audio.o
-    0x200004e8        -       0x00000080   Zero   RW         4814    .bss.stereo_buf     stm32f7_sine.o
-    0x20000568        -       0x00000200   Zero   RW         4790    .bss.temp_buffer    stm32f7_display.o
-    0x20000768        -       0x00000004   Zero   RW         3055    .bss.uwTick         stm32f7xx_hal.o
-    0x2000076c   0x0802b00c   0x00000004   PAD
-    0x20000770        -       0x00000400   Zero   RW          117    STACK               startup_stm32f746xx.o
+    0x20000094        -       0x00000008   Zero   RW         4816    .bss..L_MergedGlobals  stm32f7_sine.o
+    0x2000009c        -       0x0000005c   Zero   RW         5005    .bss..L_MergedGlobals  stm32746g_discovery_lcd.o
+    0x200000f8        -       0x00000064   Zero   RW         5344    .bss..L_MergedGlobals  stm32746g_discovery_sdram.o
+    0x2000015c        -       0x00000060   Zero   RW         5201    .bss.BSP_AUDIO_OUT_MspInit.hdma_sai_tx  stm32746g_discovery_audio.o
+    0x200001bc        -       0x00000084   Zero   RW         5004    .bss.BSP_LCD_ClockConfig.periph_clk_init_struct  stm32746g_discovery_lcd.o
+    0x20000240        -       0x00000060   Zero   RW         5342    .bss.BSP_SDRAM_MspInit.dma_handle  stm32746g_discovery_sdram.o
+    0x200002a0        -       0x00000004   Zero   RW         5200    .bss.audio_drv      stm32746g_discovery_audio.o
+    0x200002a4        -       0x00000054   Zero   RW         5094    .bss.hI2cAudioHandler  stm32746g_discovery.o
+    0x200002f8        -       0x000000a8   Zero   RW         5003    .bss.hLtdcHandler   stm32746g_discovery_lcd.o
+    0x200003a0        -       0x00000084   Zero   RW         5198    .bss.haudio_in_sai  stm32746g_discovery_audio.o
+    0x20000424        -       0x00000084   Zero   RW         5197    .bss.haudio_out_sai  stm32746g_discovery_audio.o
+    0x200004a8        -       0x00000080   Zero   RW         4814    .bss.stereo_buf     stm32f7_sine.o
+    0x20000528        -       0x00000200   Zero   RW         4790    .bss.temp_buffer    stm32f7_display.o
+    0x20000728        -       0x00000004   Zero   RW         3055    .bss.uwTick         stm32f7xx_hal.o
+    0x2000072c   0x0802aff4   0x00000004   PAD
+    0x20000730        -       0x00000400   Zero   RW          117    STACK               startup_stm32f746xx.o
 
 
 ==============================================================================
@@ -18932,7 +18931,7 @@ Image component sizes
       1996         72      11020         24        392      30512   stm32746g_discovery_lcd.o
        628         32          0          0        196      10228   stm32746g_discovery_sdram.o
       1530        228     140703          4        540      15053   stm32f7_display.o
-       654         60          0          8        200      10072   stm32f7_sine.o
+       630         60          0          8        136      10052   stm32f7_sine.o
        166         20          0          8          4       8386   stm32f7xx_hal.o
        308         32          0          0          0      11504   stm32f7xx_hal_cortex.o
        912         20          0          0          0       9358   stm32f7xx_hal_dma.o
@@ -18951,7 +18950,7 @@ Image component sizes
       1918         40         18         48          6       6189   wm8994.o
 
     ----------------------------------------------------------------------
-     17888        820     154332        108       2820     318838   Object Totals
+     17864        820     154332        108       2756     318818   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         36          0          3          0         10          0   (incl. Padding)
 
@@ -19008,15 +19007,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21696        924     154332        108       2820     319546   Grand Totals
-     21696        924     154332        108       2820     319546   ELF Image Totals
-     21696        924     154332        108          0          0   ROM Totals
+     21672        924     154332        108       2756     319526   Grand Totals
+     21672        924     154332        108       2756     319526   ELF Image Totals
+     21672        924     154332        108          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               176028 ( 171.90kB)
-    Total RW  Size (RW Data + ZI Data)              2928 (   2.86kB)
-    Total ROM Size (Code + RO Data + RW Data)     176136 ( 172.01kB)
+    Total RO  Size (Code + RO Data)               176004 ( 171.88kB)
+    Total RW  Size (RW Data + ZI Data)              2864 (   2.80kB)
+    Total ROM Size (Code + RO Data + RW Data)     176112 ( 171.98kB)
 
 ==============================================================================
 

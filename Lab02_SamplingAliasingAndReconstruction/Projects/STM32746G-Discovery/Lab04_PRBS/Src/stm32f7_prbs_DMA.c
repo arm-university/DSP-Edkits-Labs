@@ -1,26 +1,17 @@
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7_loop_buf_dma.h"
-#include "wm8994.h"
-#include "stm32746g_discovery_audio.h"
+#include "stm32f7_prbs_DMA.h"
 
-#define SOURCE_FILE_NAME "stm32f7_loop_buf_dma.c"
+#define SOURCE_FILE_NAME "stm32f7_prbs_DMA.c"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Audio parameters */
-#define AUDIO_FREQ						AUDIO_FREQUENCY_44K
-#define AUDIO_IN_BIT_RES      16u
-#define AUDIO_IN_CHANNEL_NBR  1u    
+#define AUDIO_FREQ      48000
+#define BUF_LEN         128 
 
-#define BUF_LEN         512u
-
-#define HALF_READY      1
-#define FULL_READY      2
-
+/* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-volatile static uint8_t buffer_ready;
-static float32_t buffer[BUF_LEN];
-static int16_t audio_buffer[BUF_LEN];
+static int16_t stereo_buf[BUF_LEN * 2];
 
 /* Private function prototypes -----------------------------------------------*/
 static void MPU_Config(void);
@@ -29,27 +20,26 @@ static void Error_Handler(void);
 static void CPU_CACHE_Enable(void);
 
 /* Private functions ---------------------------------------------------------*/
-void BSP_AUDIO_IN_HalfTransfer_CallBack(void)
+static void update_buffer(int start, int end)
 {
-  buffer_ready = HALF_READY;
+  for (int i = start; i < end; i++) {
+      int16_t s = prbs(8000); 
+			//  int16_t s = prand();
+      stereo_buf[2*i] = s;
+      stereo_buf[2*i+1] = s;
+      plotSamplesIntr(s,128);
+  }
 }
 
-void BSP_AUDIO_IN_TransferComplete_CallBack(void)
+void BSP_AUDIO_OUT_HalfTransfer_CallBack(void)
 {
-  buffer_ready = FULL_READY;
+  update_buffer(0, BUF_LEN/2);
 }
 
-void process_half(int16_t *buf, uint32_t ns)
+void BSP_AUDIO_OUT_TransferComplete_CallBack(void)
 {
-	uint32_t j = 0;
-	for (uint32_t i = 0; i < ns; i += 2) /* Process only the left-slot samples (mono). Switch to i++ if the input is true stereo. */
-	{
-		int16_t x = buf[i];
-		buffer[j++] = (float32_t)x;
-	}
-	plotWaveNoAutoScale(buffer, j);
+  update_buffer(BUF_LEN/2, BUF_LEN);
 }
-
 
 int main(void)
 {
@@ -57,7 +47,7 @@ int main(void)
   MPU_Config();
 
   /* Enable the CPU Cache */
-  // CPU_CACHE_Enable();
+  CPU_CACHE_Enable();
 
   HAL_Init();
 	
@@ -65,30 +55,22 @@ int main(void)
   SystemClock_Config();
 	
 	stm32f7_LCD_init(AUDIO_FREQ, SOURCE_FILE_NAME, GRAPH);
-	
-	BSP_LED_Init(LED1);
-   
-  if (BSP_AUDIO_IN_InitEx(INPUT_DEVICE_INPUT_LINE_1, AUDIO_FREQ, AUDIO_IN_BIT_RES, AUDIO_IN_CHANNEL_NBR) != AUDIO_OK)
-	{
+
+  update_buffer(0, BUF_LEN);
+
+	if (BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_HEADPHONE, 50, AUDIO_FREQ) != AUDIO_OK) {
 		Error_Handler();
 	}
 
-  // Start ping-pong DMA:
-  BSP_AUDIO_IN_Record((uint16_t*)audio_buffer, BUF_LEN);
+  BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);
 
+  // Start DMA in circular mode:
+	if ((BSP_AUDIO_OUT_Play((uint16_t*)stereo_buf, BUF_LEN * sizeof(int16_t))) != AUDIO_OK) {
+		Error_Handler();
+	}
   /* Infinite loop */
   while (1)
   {
-    if (buffer_ready == HALF_READY)
-    {
-      process_half(audio_buffer, BUF_LEN/2);
-      buffer_ready = 0;
-    }
-    else if (buffer_ready == FULL_READY)
-    {
-      process_half(audio_buffer + (BUF_LEN/2), BUF_LEN/2);
-      buffer_ready = 0;
-    }
   }
 }
 
@@ -149,6 +131,29 @@ static void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+void BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void *Params)
+{
+    RCC_PeriphCLKInitTypeDef clkcfg;
+    HAL_RCCEx_GetPeriphCLKConfig(&clkcfg);
+
+    clkcfg.PeriphClockSelection = RCC_PERIPHCLK_SAI2;
+    clkcfg.Sai2ClockSelection    = RCC_SAI2CLKSOURCE_PLLI2S;
+
+    if (AudioFreq == AUDIO_FREQUENCY_8K) {
+        /* VCO = (HSE/PLLM)*PLLI2SN = 25/25*256 = 256 MHz */
+        clkcfg.PLLI2S.PLLI2SN = 256;
+        clkcfg.PLLI2S.PLLI2SQ =   5; /* 256/5 = 51.2 MHz */
+        clkcfg.PLLI2SDivQ     =  25; /* 51.2/25 = 2.048 MHz */
+    } else {
+        /* ST defaults for 11/22/44 kHz */
+        clkcfg.PLLI2S.PLLI2SN = 429;
+        clkcfg.PLLI2S.PLLI2SQ =   2;
+        clkcfg.PLLI2SDivQ     =  19;
+    }
+
+    HAL_RCCEx_PeriphCLKConfig(&clkcfg);
 }
 
 /**

@@ -11,7 +11,6 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-static int16_t audio_buf[BUF_LEN];
 float32_t sine_frequency = 367.0f;
 float32_t amplitude      = 10000.0f;
 float32_t theta          = 0.0f;
@@ -28,15 +27,13 @@ static void CPU_CACHE_Enable(void);
 static void update_buffer(int start, int end)
 {
   for (int i = start; i < end; i++) {
-		audio_buf[i] = (int16_t)(amplitude * arm_sin_f32(theta));
+		int16_t s = (int16_t)(amplitude * arm_sin_f32(theta));
 		theta += theta_increment;
 		if (theta >= 2*PI) theta -= 2*PI;
-		plotSamplesIntr(audio_buf[i],32);
+		stereo_buf[2*i]   = s;
+		stereo_buf[2*i+1] = s;
+		plotSamplesIntr(s,32);
   }
-	for (uint32_t i = 0; i < BUF_LEN; i++) {
-		stereo_buf[2*i]   = audio_buf[i];
-		stereo_buf[2*i+1] = audio_buf[i];
-	}
 }
 
 void BSP_AUDIO_OUT_HalfTransfer_CallBack(void)

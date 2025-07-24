@@ -420,7 +420,7 @@ void plotWaveNoAutoScale(float32_t * data_buffer, int num_samples) {
 	int ymin = GRAPH_VER_END_PIXEL;
 	float max, min = data_buffer[0];
 	
-	float yscalefactor = 50;
+	float yscalefactor = 270;
 	
 	float x_spacing = 1;
 

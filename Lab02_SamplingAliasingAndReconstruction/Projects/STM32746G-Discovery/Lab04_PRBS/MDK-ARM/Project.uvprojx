@@ -837,14 +837,14 @@
               <FilePath>..\Src\stm32f7_display.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7_prbs_intr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_prbs_intr.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f7_prbs.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f7_prbs.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7_prbs_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\stm32f7_prbs_DMA.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1698,14 +1698,14 @@
               <FilePath>..\Src\stm32f7_display.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7_prbs_intr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\stm32f7_prbs_intr.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f7_prbs.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\stm32f7_prbs.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7_prbs_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\stm32f7_prbs_DMA.c</FilePath>
             </File>
           </Files>
         </Group>
